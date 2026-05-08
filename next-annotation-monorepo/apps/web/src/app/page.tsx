@@ -5,8 +5,8 @@ export default function Home() {
     <main className="homePage">
       <h1>Next Annotation Monorepo</h1>
       <p>Open the mock annotation flow from the link below.</p>
-      <Link href="/annotation" className="homeLink">
-        Go to /annotation
+      <Link href="/lab" className="homeLink">
+        Open mock annotation lab
       </Link>
     </main>
   );
