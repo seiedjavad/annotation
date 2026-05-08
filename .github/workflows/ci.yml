@@ -13,9 +13,7 @@ concurrency:
   cancel-in-progress: ${{ github.ref != 'refs/heads/main' }}
 
 permissions:
-  contents: read
-  pages: write
-  id-token: write
+  contents: write
 
 defaults:
   run:
@@ -52,20 +50,12 @@ jobs:
       - name: Build
         run: pnpm run build
 
-      - name: Upload static site for GitHub Pages
+      # Pushes static files to branch gh-pages (no "Pages from Actions" API).
+      # Repo Settings → Pages: Source "Deploy from a branch", branch gh-pages, folder / (root).
+      - name: Publish site to gh-pages branch
         if: github.event_name == 'push' && github.ref == 'refs/heads/main'
-        uses: actions/upload-pages-artifact@v3
+        uses: JamesIves/github-pages-deploy-action@v4
         with:
-          path: next-annotation-monorepo/apps/web/out
-
-  deploy:
-    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
-    needs: ci
-    runs-on: ubuntu-latest
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
-    steps:
-      - name: Deploy to GitHub Pages
-        id: deployment
-        uses: actions/deploy-pages@v4
+          branch: gh-pages
+          folder: next-annotation-monorepo/apps/web/out
+          clean: true
