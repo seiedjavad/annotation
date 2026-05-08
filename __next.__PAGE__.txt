@@ -1,0 +1,6 @@
+1:"$Sreact.fragment"
+2:I[78956,["/annotation/_next/static/chunks/0qqeht7slpjxc.js","/annotation/_next/static/chunks/0quptd~pwb81s.js","/annotation/_next/static/chunks/00m4j~t6dd6r8.js"],""]
+3:I[26980,["/annotation/_next/static/chunks/0qqeht7slpjxc.js","/annotation/_next/static/chunks/0quptd~pwb81s.js"],"OutletBoundary"]
+4:"$Sreact.suspense"
+0:{"rsc":["$","$1","c",{"children":[["$","main",null,{"className":"homePage","children":[["$","h1",null,{"children":"Next Annotation Monorepo"}],["$","p",null,{"children":"Open the mock annotation flow from the link below."}],["$","$L2",null,{"href":"/lab","className":"homeLink","children":"Open mock annotation lab"}]]}],[["$","script","script-0",{"src":"/annotation/_next/static/chunks/00m4j~t6dd6r8.js","async":true}]],["$","$L3",null,{"children":["$","$4",null,{"name":"Next.MetadataOutlet","children":"$@5"}]}]]}],"isPartial":false,"staleTime":300,"varyParams":null,"buildId":"tndaMQqnypzQG0508352n"}
+5:null
