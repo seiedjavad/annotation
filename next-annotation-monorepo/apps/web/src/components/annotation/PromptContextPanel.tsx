@@ -14,9 +14,6 @@ export function PromptContextPanel({ prompt, context, tags }: PromptContextPanel
       <Card title="Prompt">
         <p className="bodyText">{prompt}</p>
       </Card>
-      <Card title="Images">
-        <p className="bodySubtle">Reference set shown below for the annotator.</p>
-      </Card>
       <Card title="Context">
         <p className="bodyText">{context}</p>
         <div className="tagRow">

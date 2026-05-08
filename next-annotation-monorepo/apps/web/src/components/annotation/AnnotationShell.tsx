@@ -4,7 +4,6 @@ import { useMemo, useState } from "react";
 import { AnnotationTask, Decision, mockAnnotationTask } from "@annotation/mock-data";
 
 import { PromptContextPanel } from "./PromptContextPanel";
-import { ReferenceImagesPanel } from "./ReferenceImagesPanel";
 import { ResponsesPanel } from "./ResponsesPanel";
 
 function cloneTask(task: AnnotationTask): AnnotationTask {
@@ -60,11 +59,9 @@ export function AnnotationShell() {
       <section className="annotationGrid">
         <div>
           <PromptContextPanel prompt={task.prompt} context={task.context} tags={task.tags} />
-          <ReferenceImagesPanel references={task.references} />
         </div>
         <ResponsesPanel
           options={task.responseOptions}
-          candidateImages={task.candidates}
           editMode={isEditMode}
           validationError={validationError}
           onToggleEditMode={() => setIsEditMode((prev) => !prev)}

@@ -1,14 +1,12 @@
 "use client";
 
-import Image from "next/image";
-import { CandidateImage, Decision, ResponseOption } from "@annotation/mock-data";
+import { Decision, ResponseOption } from "@annotation/mock-data";
 import { Card, PrimaryButton, SecondaryButton } from "@annotation/ui";
 
-import { ResponseItem } from "./ResponseItem";
+import { AcceptRejectResponsesList } from "./AcceptRejectResponsesList";
 
 type ResponsesPanelProps = {
   options: ResponseOption[];
-  candidateImages: CandidateImage[];
   editMode: boolean;
   validationError: string | null;
   onToggleEditMode: () => void;
@@ -19,7 +17,6 @@ type ResponsesPanelProps = {
 
 export function ResponsesPanel({
   options,
-  candidateImages,
   editMode,
   validationError,
   onToggleEditMode,
@@ -32,32 +29,11 @@ export function ResponsesPanel({
   return (
     <div className="rightColumn">
       <Card title="Responses">
-        <div className="candidateGrid">
-          {candidateImages.map((image, index) => (
-            <div key={image.id} className="candidateRow">
-              <div className="candidateImageCard">
-                <Image
-                  src={image.src}
-                  alt={image.alt}
-                  fill
-                  sizes="(max-width: 1200px) 100vw, 400px"
-                />
-              </div>
-              <div className="dropBox">Drop here ({index + 1})</div>
-            </div>
-          ))}
-        </div>
-        <div className="responseList">
-          {options.map((item) => (
-            <ResponseItem
-              key={item.id}
-              text={item.text}
-              answer={item.answer}
-              editMode={editMode}
-              onDecisionChange={(nextDecision) => onDecisionChange(item.id, nextDecision)}
-            />
-          ))}
-        </div>
+        <AcceptRejectResponsesList
+          options={options}
+          editMode={editMode}
+          onDecisionChange={onDecisionChange}
+        />
         <div className="actionRow">
           <PrimaryButton type="button" onClick={onSubmit} disabled={isSubmitDisabled || !editMode}>
             Submit Your Response
